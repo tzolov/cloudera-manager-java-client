@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.logaritex.hadoop.configuration.manager.http;
+package com.logaritex.hadoop.configuration.manager.service;
 
 /**
  * Abstraction layer over the standard HTTP Create-Read-Update-Delete (CRUD) semantics. The HTTP request path defines

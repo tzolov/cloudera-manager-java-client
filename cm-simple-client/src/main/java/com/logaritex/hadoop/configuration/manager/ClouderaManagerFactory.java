@@ -17,19 +17,20 @@
  */
 package com.logaritex.hadoop.configuration.manager;
 
-import com.logaritex.hadoop.configuration.manager.service.ConfigurationManager;
+import com.logaritex.hadoop.configuration.manager.service.ClouderaManager;
+import com.logaritex.hadoop.configuration.manager.service.impl.ClouderaManagerImpl;
 
-public class ConfigurationManagerFactory {
+public class ClouderaManagerFactory {
 
-	public static ConfigurationManager createConfigurationManager(String hostName, int port, String username,
+	public static ClouderaManager createClouderaManager(String hostName, int port, String username,
 			String password) {
 		SimpleHttpService httpService = new SimpleHttpService(hostName, port, username, password);
-		return new ConfigurationManager(httpService);
+		return new ClouderaManagerImpl(httpService);
 	}
 
-	public static ConfigurationManager createConfigurationManager(String baseUr, String username, String password) {
+	public static ClouderaManager createClouderaManager(String baseUr, String username, String password) {
 		SimpleHttpService httpService = new SimpleHttpService(baseUr, username, password);
-		return new ConfigurationManager(httpService);
+		return new ClouderaManagerImpl(httpService);
 	}
 
 }

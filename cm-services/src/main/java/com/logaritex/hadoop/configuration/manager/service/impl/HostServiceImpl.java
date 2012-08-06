@@ -27,8 +27,8 @@ import com.logaritex.hadoop.configuration.manager.domain.Host;
 import com.logaritex.hadoop.configuration.manager.domain.HostList;
 import com.logaritex.hadoop.configuration.manager.domain.Metric;
 import com.logaritex.hadoop.configuration.manager.domain.MetricList;
-import com.logaritex.hadoop.configuration.manager.http.HttpService;
 import com.logaritex.hadoop.configuration.manager.service.HostService;
+import com.logaritex.hadoop.configuration.manager.service.HttpService;
 
 public class HostServiceImpl implements HostService {
 

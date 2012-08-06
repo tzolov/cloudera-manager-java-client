@@ -25,8 +25,8 @@ import com.logaritex.hadoop.configuration.manager.domain.Cluster;
 import com.logaritex.hadoop.configuration.manager.domain.ClusterList;
 import com.logaritex.hadoop.configuration.manager.domain.Command;
 import com.logaritex.hadoop.configuration.manager.domain.CommandList;
-import com.logaritex.hadoop.configuration.manager.http.HttpService;
 import com.logaritex.hadoop.configuration.manager.service.ClusterService;
+import com.logaritex.hadoop.configuration.manager.service.HttpService;
 
 public class ClusterServiceImpl implements ClusterService {
 

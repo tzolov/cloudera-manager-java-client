@@ -24,9 +24,9 @@ import com.logaritex.hadoop.configuration.manager.domain.Host;
 import com.logaritex.hadoop.configuration.manager.domain.Role;
 import com.logaritex.hadoop.configuration.manager.domain.Service;
 import com.logaritex.hadoop.configuration.manager.domain.User;
-import com.logaritex.hadoop.configuration.manager.service.ConfigurationManager;
+import com.logaritex.hadoop.configuration.manager.service.ClouderaManager;
 import com.logaritex.hadoop.configuration.manager.service.ServiceService;
-import com.logaritex.hadoop.configuration.manager.service.impl.ServiceServiceImpl.View;
+import com.logaritex.hadoop.configuration.manager.service.ServiceService.View;
 import com.logaritex.hadoop.configuration.manager.service.UserService;
 
 public class Sample1 {
@@ -36,7 +36,7 @@ public class Sample1 {
 	 */
 	public static void main(String[] args) {
 
-		ConfigurationManager cm = ConfigurationManagerFactory.createConfigurationManager("http://192.168.15.52:7180",
+		ClouderaManager cm = ClouderaManagerFactory.createClouderaManager("http://192.168.15.52:7180",
 				"admin", "t0mt0mpl@$3$");
 
 		List<Cluster> clusters = cm.getClusterService().getAllClusters();

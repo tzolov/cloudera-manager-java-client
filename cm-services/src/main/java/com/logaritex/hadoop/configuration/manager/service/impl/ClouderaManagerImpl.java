@@ -15,15 +15,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.logaritex.hadoop.configuration.manager.service;
+package com.logaritex.hadoop.configuration.manager.service.impl;
 
-import com.logaritex.hadoop.configuration.manager.http.HttpService;
-import com.logaritex.hadoop.configuration.manager.service.impl.ClusterServiceImpl;
-import com.logaritex.hadoop.configuration.manager.service.impl.HostServiceImpl;
-import com.logaritex.hadoop.configuration.manager.service.impl.ServiceServiceImpl;
-import com.logaritex.hadoop.configuration.manager.service.impl.UserServiceImpl;
+import com.logaritex.hadoop.configuration.manager.service.ClouderaManager;
+import com.logaritex.hadoop.configuration.manager.service.ClusterService;
+import com.logaritex.hadoop.configuration.manager.service.HostService;
+import com.logaritex.hadoop.configuration.manager.service.HttpService;
+import com.logaritex.hadoop.configuration.manager.service.ServiceService;
+import com.logaritex.hadoop.configuration.manager.service.UserService;
 
-public class ConfigurationManager {
+public class ClouderaManagerImpl implements ClouderaManager {
 
 	private final HttpService httpService;
 
@@ -35,10 +36,11 @@ public class ConfigurationManager {
 
 	private ServiceService serviceService;
 
-	public ConfigurationManager(HttpService httpService) {
+	public ClouderaManagerImpl(HttpService httpService) {
 		this.httpService = httpService;
 	}
 
+	@Override
 	public ClusterService getClusterService() {
 		if (clusterService == null) {
 			clusterService = new ClusterServiceImpl(httpService);
@@ -47,6 +49,7 @@ public class ConfigurationManager {
 		return clusterService;
 	}
 
+	@Override
 	public HostService getHostService() {
 		if (hostService == null) {
 			hostService = new HostServiceImpl(httpService);
@@ -55,6 +58,7 @@ public class ConfigurationManager {
 		return hostService;
 	}
 
+	@Override
 	public UserService getUserService() {
 		if (userService == null) {
 			userService = new UserServiceImpl(httpService);
@@ -62,6 +66,7 @@ public class ConfigurationManager {
 		return userService;
 	}
 
+	@Override
 	public ServiceService getServiceService() {
 		if (serviceService == null) {
 			serviceService = new ServiceServiceImpl(httpService);

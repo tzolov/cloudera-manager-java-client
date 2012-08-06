@@ -23,7 +23,7 @@ import java.util.List;
 
 import com.logaritex.hadoop.configuration.manager.domain.User;
 import com.logaritex.hadoop.configuration.manager.domain.UserList;
-import com.logaritex.hadoop.configuration.manager.http.HttpService;
+import com.logaritex.hadoop.configuration.manager.service.HttpService;
 import com.logaritex.hadoop.configuration.manager.service.UserService;
 
 public class UserServiceImpl implements UserService {

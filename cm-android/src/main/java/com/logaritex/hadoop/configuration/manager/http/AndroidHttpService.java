@@ -29,7 +29,7 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import com.logaritex.hadoop.configuration.manager.http.HttpService;
+import com.logaritex.hadoop.configuration.manager.service.HttpService;
 
 public class AndroidHttpService implements HttpService {
 	
