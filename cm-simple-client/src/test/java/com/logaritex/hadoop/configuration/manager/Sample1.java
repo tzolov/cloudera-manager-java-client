@@ -26,7 +26,7 @@ import com.logaritex.hadoop.configuration.manager.domain.Service;
 import com.logaritex.hadoop.configuration.manager.domain.User;
 import com.logaritex.hadoop.configuration.manager.service.ConfigurationManager;
 import com.logaritex.hadoop.configuration.manager.service.ServiceService;
-import com.logaritex.hadoop.configuration.manager.service.ServiceService.View;
+import com.logaritex.hadoop.configuration.manager.service.impl.ServiceServiceImpl.View;
 import com.logaritex.hadoop.configuration.manager.service.UserService;
 
 public class Sample1 {

@@ -18,6 +18,10 @@
 package com.logaritex.hadoop.configuration.manager.service;
 
 import com.logaritex.hadoop.configuration.manager.http.HttpService;
+import com.logaritex.hadoop.configuration.manager.service.impl.ClusterServiceImpl;
+import com.logaritex.hadoop.configuration.manager.service.impl.HostServiceImpl;
+import com.logaritex.hadoop.configuration.manager.service.impl.ServiceServiceImpl;
+import com.logaritex.hadoop.configuration.manager.service.impl.UserServiceImpl;
 
 public class ConfigurationManager {
 
@@ -60,7 +64,7 @@ public class ConfigurationManager {
 
 	public ServiceService getServiceService() {
 		if (serviceService == null) {
-			serviceService = new ServiceService(httpService);
+			serviceService = new ServiceServiceImpl(httpService);
 		}
 		return serviceService;
 	}

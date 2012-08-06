@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.logaritex.hadoop.configuration.manager.service;
+package com.logaritex.hadoop.configuration.manager.service.impl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +24,7 @@ import java.util.List;
 import com.logaritex.hadoop.configuration.manager.domain.User;
 import com.logaritex.hadoop.configuration.manager.domain.UserList;
 import com.logaritex.hadoop.configuration.manager.http.HttpService;
+import com.logaritex.hadoop.configuration.manager.service.UserService;
 
 public class UserServiceImpl implements UserService {
 

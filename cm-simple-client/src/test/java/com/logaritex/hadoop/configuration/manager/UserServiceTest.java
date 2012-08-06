@@ -27,7 +27,7 @@ import org.junit.Test;
 
 import com.logaritex.hadoop.configuration.manager.domain.User;
 import com.logaritex.hadoop.configuration.manager.service.UserService;
-import com.logaritex.hadoop.configuration.manager.service.UserServiceImpl;
+import com.logaritex.hadoop.configuration.manager.service.impl.UserServiceImpl;
 
 public class UserServiceTest {
 
