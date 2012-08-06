@@ -54,7 +54,7 @@ public class UserServiceTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testGetAllUsers() {
 		List<User> users = userService.getAllUsers();
 
@@ -66,7 +66,7 @@ public class UserServiceTest {
 		Assert.assertEquals("ROLE_ADMIN", users.get(0).getRoles().get(0));
 	}
 
-	@Test
+	//@Test
 	public void testCreateUsers() {
 
 		Assert.assertEquals(1, userService.getAllUsers().size());
@@ -83,7 +83,7 @@ public class UserServiceTest {
 
 	}
 
-	@Test
+	//@Test
 	public void testUpdateUser() {
 
 		Assert.assertEquals(1, userService.getAllUsers().size());
