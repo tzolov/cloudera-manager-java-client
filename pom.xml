@@ -23,7 +23,7 @@
 		<module>cm-domain</module>
 		<module>cm-services</module>
 		<module>cm-java-client</module>
-		<module>cm-android</module>
+		<module>cm-android-client</module>
 	</modules>
 
 	<build>

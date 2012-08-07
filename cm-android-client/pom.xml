@@ -22,8 +22,8 @@
 		<artifactId>cm-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>cm-android</artifactId>
-	<name>cm-android</name>
+	<artifactId>cm-android-client</artifactId>
+	<name>cm-android-client</name>
 	
 	<properties>
 		<org.springframework.android-version>1.0.0.RELEASE</org.springframework.android-version>
