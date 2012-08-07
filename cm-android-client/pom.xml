@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>com.logaritex.hadoop.configuration.manager</groupId>
 			<artifactId>cm-services</artifactId>
-			<version>${pom.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </project>

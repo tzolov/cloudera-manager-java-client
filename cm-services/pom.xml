@@ -27,7 +27,7 @@
 		<dependency>
 			<groupId>com.logaritex.hadoop.configuration.manager</groupId>
 			<artifactId>cm-domain</artifactId>
-			<version>${pom.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
