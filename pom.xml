@@ -22,7 +22,7 @@
 	<modules>
 		<module>cm-domain</module>
 		<module>cm-services</module>
-		<module>cm-simple-client</module>
+		<module>cm-java-client</module>
 		<module>cm-android</module>
 	</modules>
 

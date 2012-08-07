@@ -22,7 +22,7 @@
 		<artifactId>cm-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>cm-simple-client</artifactId>
+	<artifactId>cm-java-client</artifactId>
 
 	<properties>
 		<spring.version>3.1.2.RELEASE</spring.version>
