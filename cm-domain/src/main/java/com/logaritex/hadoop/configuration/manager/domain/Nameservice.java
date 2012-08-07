@@ -22,9 +22,8 @@ import java.util.List;
 /**
  * Provides information about an HDFS nameservice.
  * 
- * Nameservices can be either a stand-alone NameNode, a NameNode paired with a
- * SecondaryNameNode, or a high-availability pair formed by an active and a
- * stand-by NameNode.
+ * Nameservices can be either a stand-alone NameNode, a NameNode paired with a SecondaryNameNode, or a high-availability
+ * pair formed by an active and a stand-by NameNode.
  * 
  * <br/>
  * The following fields are only available in the object's full view:
@@ -147,12 +146,34 @@ public class Nameservice {
 
 	@Override
 	public String toString() {
-		return "Nameservice [name=" + name + ", active=" + active
-				+ ", activeFailoverController=" + activeFailoverController
-				+ ", standBy=" + standBy + ", standByFailoverController="
-				+ standByFailoverController + ", secondary=" + secondary
-				+ ", mountPoints=" + mountPoints + ", healthSummary="
-				+ healthSummary + ", healthChecks=" + healthChecks + "]";
+		return "Nameservice [name=" + name + ", active=" + active + ", activeFailoverController="
+				+ activeFailoverController + ", standBy=" + standBy + ", standByFailoverController="
+				+ standByFailoverController + ", secondary=" + secondary + ", mountPoints=" + mountPoints
+				+ ", healthSummary=" + healthSummary + ", healthChecks=" + healthChecks + "]";
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Nameservice other = (Nameservice) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
 }

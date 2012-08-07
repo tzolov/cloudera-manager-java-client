@@ -51,8 +51,44 @@ public class RoleRef {
 
 	@Override
 	public String toString() {
-		return "RoleRef [clusterName=" + clusterName + ", serviceName="
-				+ serviceName + ", roleName=" + roleName + "]";
+		return "RoleRef [clusterName=" + clusterName + ", serviceName=" + serviceName + ", roleName=" + roleName + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((clusterName == null) ? 0 : clusterName.hashCode());
+		result = prime * result + ((roleName == null) ? 0 : roleName.hashCode());
+		result = prime * result + ((serviceName == null) ? 0 : serviceName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RoleRef other = (RoleRef) obj;
+		if (clusterName == null) {
+			if (other.clusterName != null)
+				return false;
+		} else if (!clusterName.equals(other.clusterName))
+			return false;
+		if (roleName == null) {
+			if (other.roleName != null)
+				return false;
+		} else if (!roleName.equals(other.roleName))
+			return false;
+		if (serviceName == null) {
+			if (other.serviceName != null)
+				return false;
+		} else if (!serviceName.equals(other.serviceName))
+			return false;
+		return true;
 	}
 
 }

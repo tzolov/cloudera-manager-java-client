@@ -73,8 +73,7 @@ public class Command {
 	 */
 	private Command parent;
 	/**
-	 * List of child commands. Only available in the full view. The list
-	 * contains only the summary view of the children.
+	 * List of child commands. Only available in the full view. The list contains only the summary view of the children.
 	 */
 	private CommandList children;
 
@@ -184,12 +183,35 @@ public class Command {
 
 	@Override
 	public String toString() {
-		return "Command [id=" + id + ", name=" + name + ", startTime="
-				+ startTime + ", endTime=" + endTime + ", active=" + active
-				+ ", success=" + success + ", resultMessage=" + resultMessage
-				+ ", resultDataUrl=" + resultDataUrl + ", serviceRef="
-				+ serviceRef + ", roleRef=" + roleRef + ", hostRef=" + hostRef
-				+ ", parent=" + parent + ", children=" + children + "]";
+		return "Command [id=" + id + ", name=" + name + ", startTime=" + startTime + ", endTime=" + endTime
+				+ ", active=" + active + ", success=" + success + ", resultMessage=" + resultMessage
+				+ ", resultDataUrl=" + resultDataUrl + ", serviceRef=" + serviceRef + ", roleRef=" + roleRef
+				+ ", hostRef=" + hostRef + ", parent=" + parent + ", children=" + children + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Command other = (Command) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 }

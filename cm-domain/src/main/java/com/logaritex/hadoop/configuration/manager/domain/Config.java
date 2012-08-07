@@ -20,11 +20,9 @@ package com.logaritex.hadoop.configuration.manager.domain;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
- * Model for a configuration parameter. When an entry's value property is not
- * available, it means the entry is not configured. This means that the default
- * value for the entry, if any, will be used. Setting a value to null also can
- * be used to unset any previously set value for the parameter, reverting to the
- * default value (if any).
+ * Model for a configuration parameter. When an entry's value property is not available, it means the entry is not
+ * configured. This means that the default value for the entry, if any, will be used. Setting a value to null also can
+ * be used to unset any previously set value for the parameter, reverting to the default value (if any).
  * 
  * http://cloudera.github.com/cm_api/apidocs/v1/ns0_apiConfig.html
  * 
@@ -36,19 +34,16 @@ public class Config {
 	}
 
 	/**
-	 * Readonly. The canonical name that identifies this configuration
-	 * parameter.
+	 * Readonly. The canonical name that identifies this configuration parameter.
 	 */
 	private String name;
 	/**
-	 * The user-defined value. When absent, the default value (if any) will be
-	 * used.
+	 * The user-defined value. When absent, the default value (if any) will be used.
 	 */
 	private String value;
 	/**
-	 * Readonly. Requires "full" view. Whether this configuration is required
-	 * for the object. If any required configuration is not set, operations on
-	 * the object may not work.
+	 * Readonly. Requires "full" view. Whether this configuration is required for the object. If any required
+	 * configuration is not set, operations on the object may not work.
 	 */
 	private boolean required;
 	/**
@@ -57,8 +52,7 @@ public class Config {
 	@JsonProperty("default")
 	private String defaultValue;
 	/**
-	 * Readonly. Requires "full" view. A user-friendly name of the parameters,
-	 * as would have been shown in the web UI.
+	 * Readonly. Requires "full" view. A user-friendly name of the parameters, as would have been shown in the web UI.
 	 */
 	private String displayName;
 	/**
@@ -66,20 +60,18 @@ public class Config {
 	 */
 	private String description;
 	/**
-	 * Readonly. Requires "full" view. If applicable, contains the related
-	 * configuration variable used by the source project.
+	 * Readonly. Requires "full" view. If applicable, contains the related configuration variable used by the source
+	 * project.
 	 */
 	private String relatedName;
 	/**
-	 * Readonly. Requires "full" view. State of the configuration parameter
-	 * after validation.
+	 * Readonly. Requires "full" view. State of the configuration parameter after validation.
 	 */
 	private ValidationState validationState;
 	/**
-	 * Readonly. Requires "full" view. A message explaining the parameter's
-	 * validation state.
+	 * Readonly. Requires "full" view. A message explaining the parameter's validation state.
 	 */
-	private  String validationMessage;
+	private String validationMessage;
 
 	public boolean isRequired() {
 		return required;
@@ -155,12 +147,40 @@ public class Config {
 
 	@Override
 	public String toString() {
-		return "Config [name=" + name + ", value=" + value + ", required="
-				+ required + ", default1=" + defaultValue + ", displayName="
-				+ displayName + ", description=" + description
-				+ ", relatedName=" + relatedName + ", validationState="
-				+ validationState + ", validationMessage=" + validationMessage
-				+ "]";
+		return "Config [name=" + name + ", value=" + value + ", required=" + required + ", default1=" + defaultValue
+				+ ", displayName=" + displayName + ", description=" + description + ", relatedName=" + relatedName
+				+ ", validationState=" + validationState + ", validationMessage=" + validationMessage + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((relatedName == null) ? 0 : relatedName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Config other = (Config) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (relatedName == null) {
+			if (other.relatedName != null)
+				return false;
+		} else if (!relatedName.equals(other.relatedName))
+			return false;
+		return true;
 	}
 
 }

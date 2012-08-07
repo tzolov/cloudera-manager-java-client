@@ -28,13 +28,11 @@ import java.util.List;
 public class Host {
 
 	/**
-	 * A unique host identifier. Typically identical to the hostname, i.e. the
-	 * host's FQDN.
+	 * A unique host identifier. Typically identical to the hostname, i.e. the host's FQDN.
 	 */
 	private String hostId;
 	/**
-	 * The host IP address. This field is not mutable after the initial
-	 * creation.
+	 * The host IP address. This field is not mutable after the initial creation.
 	 */
 	private String ipAddress;
 	/**
@@ -46,8 +44,7 @@ public class Host {
 	 */
 	private String rackId;
 	/**
-	 * Readonly. Requires "full" view. When the host agent sent the last
-	 * heartbeat.
+	 * Readonly. Requires "full" view. When the host agent sent the last heartbeat.
 	 */
 	private String lastHeartbeat;
 	/**
@@ -55,13 +52,11 @@ public class Host {
 	 */
 	private List<RoleRef> roleRefs;
 	/**
-	 * Readonly. Requires "full" view. The high-level health status of this
-	 * host.
+	 * Readonly. Requires "full" view. The high-level health status of this host.
 	 */
 	private HealthSummary healthSummary;
 	/**
-	 * Readonly. Requires "full" view. The list of health checks performed on
-	 * the host, with their results.
+	 * Readonly. Requires "full" view. The list of health checks performed on the host, with their results.
 	 */
 	private List<HealthCheck> healthChecks;
 	/**
@@ -143,10 +138,34 @@ public class Host {
 
 	@Override
 	public String toString() {
-		return "Host [hostId=" + hostId + ", ipAddress=" + ipAddress
-				+ ", hostname=" + hostname + ", rackId=" + rackId
-				+ ", lastHeartbeat=" + lastHeartbeat + ", roleRefs=" + roleRefs
-				+ ", healthSummary=" + healthSummary + ", healthChecks="
-				+ healthChecks + ", hostUrl=" + hostUrl + "]";
+		return "Host [hostId=" + hostId + ", ipAddress=" + ipAddress + ", hostname=" + hostname + ", rackId=" + rackId
+				+ ", lastHeartbeat=" + lastHeartbeat + ", roleRefs=" + roleRefs + ", healthSummary=" + healthSummary
+				+ ", healthChecks=" + healthChecks + ", hostUrl=" + hostUrl + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((hostId == null) ? 0 : hostId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Host other = (Host) obj;
+		if (hostId == null) {
+			if (other.hostId != null)
+				return false;
+		} else if (!hostId.equals(other.hostId))
+			return false;
+		return true;
+	}
+
 }

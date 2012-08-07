@@ -22,19 +22,15 @@ import java.util.Arrays;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
- * A service (such as HDFS, MapReduce, HBase) runs in a cluster. It has roles,
- * which are the actual entities (NameNode, DataNodes, etc.) that perform the
- * service's functions.
+ * A service (such as HDFS, MapReduce, HBase) runs in a cluster. It has roles, which are the actual entities (NameNode,
+ * DataNodes, etc.) that perform the service's functions.
  * 
  * <br/>
- * <b>HDFS services and health checks</b>
- * <br/>
+ * <b>HDFS services and health checks</b> <br/>
  * 
- * In CDH4, HDFS services may not present any health checks. This will happen if
- * the service has more than one nameservice configured. In those cases, the
- * health information will be available by fetching information about the
- * nameservices instead. The health summary is still available, and reflects a
- * service-wide summary.
+ * In CDH4, HDFS services may not present any health checks. This will happen if the service has more than one
+ * nameservice configured. In those cases, the health information will be available by fetching information about the
+ * nameservices instead. The health summary is still available, and reflects a service-wide summary.
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -43,11 +39,11 @@ public class Service {
 	public enum ServiceState {
 		HISTORY_NOT_AVAILABLE, UNKNOWN, STARTING, STARTED, STOPPING, STOPPED;
 	}
-	
+
 	public enum ServiceType {
 		HDFS, MAPREDUCE, HBASE, OOZIE, ZOOKEEPER, HUE, YARN;
 	}
-	
+
 	/**
 	 * The name of the service.
 	 */
@@ -147,12 +143,46 @@ public class Service {
 
 	@Override
 	public String toString() {
-		return "Service [name=" + name + ", type=" + type + ", configStale="
-				+ configStale + ", clusterRef=" + clusterRef
-				+ ", serviceState=" + serviceState + ", healthSummary="
-				+ healthSummary + ", healthChecks="
-				+ Arrays.toString(healthChecks) + ", serviceUrl=" + serviceUrl
-				+ "]";
+		return "Service [name=" + name + ", type=" + type + ", configStale=" + configStale + ", clusterRef="
+				+ clusterRef + ", serviceState=" + serviceState + ", healthSummary=" + healthSummary
+				+ ", healthChecks=" + Arrays.toString(healthChecks) + ", serviceUrl=" + serviceUrl + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((clusterRef == null) ? 0 : clusterRef.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((serviceState == null) ? 0 : serviceState.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Service other = (Service) obj;
+		if (clusterRef == null) {
+			if (other.clusterRef != null)
+				return false;
+		} else if (!clusterRef.equals(other.clusterRef))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (serviceState != other.serviceState)
+			return false;
+		if (type != other.type)
+			return false;
+		return true;
 	}
 
 }

@@ -18,8 +18,7 @@
 package com.logaritex.hadoop.configuration.manager.domain;
 
 /**
- * Represents a user activity, such as a MapReduce job, a Hive query, an Oozie
- * workflow, etc.
+ * Represents a user activity, such as a MapReduce job, a Hive query, an Oozie workflow, etc.
  * 
  * http://cloudera.github.com/cm_api/apidocs/v1/ns0_apiActivity.html
  * 
@@ -107,7 +106,8 @@ public class Activity {
 	}
 
 	/**
-	 * @param name an Activity id, which is unique within a MapReduce service.
+	 * @param name
+	 *            an Activity id, which is unique within a MapReduce service.
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -235,14 +235,36 @@ public class Activity {
 
 	@Override
 	public String toString() {
-		return "Activity [name=" + name + ", type=" + type + ", parent="
-				+ parent + ", startTime=" + startTime + ", finishTime="
-				+ finishTime + ", id=" + id + ", status=" + status + ", user="
-				+ user + ", group=" + group + ", inputDir=" + inputDir
-				+ ", outputDir=" + outputDir + ", mapper=" + mapper
-				+ ", combiner=" + combiner + ", reducer=" + reducer
-				+ ", queueName=" + queueName + ", schedulerPriority="
+		return "Activity [name=" + name + ", type=" + type + ", parent=" + parent + ", startTime=" + startTime
+				+ ", finishTime=" + finishTime + ", id=" + id + ", status=" + status + ", user=" + user + ", group="
+				+ group + ", inputDir=" + inputDir + ", outputDir=" + outputDir + ", mapper=" + mapper + ", combiner="
+				+ combiner + ", reducer=" + reducer + ", queueName=" + queueName + ", schedulerPriority="
 				+ schedulerPriority + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Activity other = (Activity) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 }

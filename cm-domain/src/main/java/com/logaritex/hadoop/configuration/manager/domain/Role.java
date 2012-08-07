@@ -20,9 +20,8 @@ package com.logaritex.hadoop.configuration.manager.domain;
 import java.util.List;
 
 /**
- * A role represents a specific entity that participate in a service. Examples
- * are JobTrackers, DataNodes, HBase Masters. Each role is assigned a host where
- * it runs on.
+ * A role represents a specific entity that participate in a service. Examples are JobTrackers, DataNodes, HBase
+ * Masters. Each role is assigned a host where it runs on.
  * 
  */
 public class Role {
@@ -52,8 +51,7 @@ public class Role {
 	 */
 	private ServiceRef serviceRef;
 	/**
-	 * Readonly. The configured run state of this role. Whether it's running,
-	 * etc.
+	 * Readonly. The configured run state of this role. Whether it's running, etc.
 	 */
 	private RoleState roleState;
 	/**
@@ -155,11 +153,55 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "Role [name=" + name + ", type=" + type + ", configStale"
-				+ configStale + ", hostRef=" + hostRef + ", serviceRef="
-				+ serviceRef + ", roleState=" + roleState + ", healthSummary="
-				+ healthSummary + ", healthChecks=" + healthChecks
-				+ ", haStatus=" + haStatus + ", roleUrl=" + roleUrl + "]";
+		return "Role [name=" + name + ", type=" + type + ", configStale" + configStale + ", hostRef=" + hostRef
+				+ ", serviceRef=" + serviceRef + ", roleState=" + roleState + ", healthSummary=" + healthSummary
+				+ ", healthChecks=" + healthChecks + ", haStatus=" + haStatus + ", roleUrl=" + roleUrl + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((hostRef == null) ? 0 : hostRef.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((roleState == null) ? 0 : roleState.hashCode());
+		result = prime * result + ((serviceRef == null) ? 0 : serviceRef.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Role other = (Role) obj;
+		if (hostRef == null) {
+			if (other.hostRef != null)
+				return false;
+		} else if (!hostRef.equals(other.hostRef))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (roleState != other.roleState)
+			return false;
+		if (serviceRef == null) {
+			if (other.serviceRef != null)
+				return false;
+		} else if (!serviceRef.equals(other.serviceRef))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		return true;
 	}
 
 }

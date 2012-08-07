@@ -23,7 +23,6 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class ClusterRef {
 	private String clusterName;
 
-
 	public String getClusterName() {
 		return clusterName;
 	}
@@ -36,5 +35,29 @@ public class ClusterRef {
 	public String toString() {
 		return "ClusterRef [clusterName=" + clusterName + "]";
 	}
-			
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((clusterName == null) ? 0 : clusterName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ClusterRef other = (ClusterRef) obj;
+		if (clusterName == null) {
+			if (other.clusterName != null)
+				return false;
+		} else if (!clusterName.equals(other.clusterName))
+			return false;
+		return true;
+	}
 }

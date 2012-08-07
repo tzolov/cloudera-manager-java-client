@@ -20,8 +20,8 @@ package com.logaritex.hadoop.configuration.manager.domain;
 import java.util.List;
 
 /**
- * A metric represents a specific metric monitored by the Cloudera Management
- * Services, and a list of values matching a user query.
+ * A metric represents a specific metric monitored by the Cloudera Management Services, and a list of values matching a
+ * user query.
  * 
  * <br/>
  * These fields are available only in the "full" view:
@@ -107,11 +107,47 @@ public class Metric {
 		this.description = description;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Metric [name=" + name + ", context=" + context + ", unit="
-				+ unit + ", data=" + data + ", displayName=" + displayName
-				+ ", description=" + description + "]";
+		return "Metric [name=" + name + ", context=" + context + ", unit=" + unit + ", data=" + data + ", displayName="
+				+ displayName + ", description=" + description + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((context == null) ? 0 : context.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((unit == null) ? 0 : unit.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Metric other = (Metric) obj;
+		if (context == null) {
+			if (other.context != null)
+				return false;
+		} else if (!context.equals(other.context))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (unit == null) {
+			if (other.unit != null)
+				return false;
+		} else if (!unit.equals(other.unit))
+			return false;
+		return true;
+	}
+
 }

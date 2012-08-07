@@ -32,7 +32,7 @@ public class VersionInfo {
 	/**
 	 * Whether this build is a development snapshot.
 	 */
-	private String snapshot;
+	private boolean snapshot;
 	/**
 	 * The user performing the build.
 	 */
@@ -54,11 +54,11 @@ public class VersionInfo {
 		this.version = version;
 	}
 
-	public String getSnapshot() {
+	public boolean getSnapshot() {
 		return snapshot;
 	}
 
-	public void setSnapshot(String snapshot) {
+	public void setSnapshot(boolean snapshot) {
 		this.snapshot = snapshot;
 	}
 
